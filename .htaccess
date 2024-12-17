@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^plantas/([0-9]+) plantas.php?id=$1 [L,QSA]
+RewriteRule ^ferramentas/([0-9]+) ferramentas.php?id=$1 [L,QSA]
+RewriteRule ^clientes/([0-9]+) clientes.php?id=$1 [L,QSA]
+RewriteRule ^plantas plantas.php [L,QSA]
+RewriteRule ^ferramentas ferramentas.php [L,QSA]
+RewriteRule ^clientes clientes.php [L,QSA]
+RewriteRule ^index index.html [L,QSA]

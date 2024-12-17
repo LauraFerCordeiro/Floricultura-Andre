@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> FlorAndre | Floricultura </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+  
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> florandre@gmail.com</li>
+                                <li>10% de desconto pro cupom trotro123</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__auth" id="autenticacao">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li>Comprinhas</li>
+                            <li>Sobre nós </li>
+                            <li>Contato</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+ 
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h5> As melhores plantas do mundo você só encontra aqui </h5>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+55 (16) 9999999</h5>
+                                <span>suporte 24h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/flor-amarela.jpg">
+                            <h5>Amarelas</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/flor-roxa.jpg">
+                            <h5>Roxas</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/flor-vermeia.jpg">
+                            <h5>Vermelhas</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/flor-azul.jpg">
+                            <h5>Azuis</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/flor-verde.jpg">
+                            <h5>Verdes</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Plantas disponiveis</h2>
+                    </div>
+                    <div class="featured__controls">
+                        <ul>
+                            <li class="active" data-filter="*">Todas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row featured__filter" id="plantas">
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        function exibirMensagem(dados) {
+            setTimeout(() => {
+                alert(`\t${dados}`);
+                location.reload();
+            }, 500);
+        }
+
+        async function logado(){
+            await fetch("./clientes.php?diferenciador=yes")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if (data.adm == null || data.adm == undefined) {
+                    console.log(data.adm);
+                    console.log("Cliente não logado");
+                    const loginLink = document.createElement('a');
+                    loginLink.href = "login.html";
+                    loginLink.innerHTML = '<i class="fa fa-user"></i> Login';
+
+                    const authDiv = document.getElementById('autenticacao');
+
+                    authDiv.appendChild(loginLink);  
+                } else {
+                    const logoutButton = document.createElement('button');
+                    logoutButton.innerHTML = '<i class="fa fa-user"></i> Logout';
+                    logoutButton.addEventListener('click', async () => {
+                        await fetch("./clientes.php?logout=yes")
+                        .then((res) => {
+                            return res.json();
+                        })
+                        .then((json) => {
+                            exibirMensagem(json.msg);
+                        })
+                        .catch(erro => {
+                            alert('Erro ao deslogar!', error);
+                        });
+                    });
+
+                    const authDiv = document.getElementById('autenticacao');
+                    authDiv.appendChild(logoutButton);
+
+                    if (data.adm == 1){
+                        window.location.href = "visualizar_cliente.html";
+                    }
+                    else {
+                        console.log('O cliente logado não possui a propriedade "adm".');
+                    }
+                }
+            }) 
+            .catch(error => {
+                console.error('Erro ao buscar o cliente logado:', error);
+            });
+        }
+
+        
+        logado();
+        
+        let plantaPreco = {};
+        let container = document.getElementById('plantas');
+        let plantaInventario = {};
+        let plantaIds = {};
+
+        fetch('./plantas')
+        .then((res) => {
+            return res.json();
+        })
+        .then((json) => {
+            const plantasDisponiveis = json.filter(planta => !planta.donoid);
+            list(plantasDisponiveis);
+    
+            console.log(json);
+        });
+
+        function list(dados) {
+            dados.forEach(planta => {
+                if (!plantaInventario[planta.nome]) {
+                    plantaInventario[planta.nome] = 0;
+                    plantaPreco[planta.nome] = planta.preco;
+                    plantaIds[planta.nome] = planta.id;
+                }
+                plantaInventario[planta.nome]++;
+            });
+
+            Object.keys(plantaInventario).forEach(function(planta) {
+                let div = document.createElement('div');
+                div.className = 'col-lg-3 col-md-4 col-sm-6';
+
+                let featuredItem = document.createElement('div');
+                featuredItem.className = 'featured__item';
+
+                let featuredItemPic = document.createElement('div');
+                featuredItemPic.className = 'featured__item__pic set-bg';
+                featuredItemPic.setAttribute('data-setbg', 'plantinha-fofa.jpg');
+                featuredItemPic.setAttribute('style', 'background-image: url("plantinha-fofa.jpg");')
+
+                let featuredItemPicHover = document.createElement('ul');
+                featuredItemPicHover.className = 'featured__item__pic__hover';
+
+                let featuredItemPicHoverLi = document.createElement('li');
+                let featuredItemPicHoverLink = document.createElement('a');
+                fetch("./clientes?diferenciador=yes")
+                .then(response => response.json())
+                .then(data => {
+                    let $login_adm = data.adm;
+                    if($login_adm == 0){
+                        featuredItemPicHoverLink.setAttribute('href', 'compra.html?id=' + plantaIds[planta]);
+                    } 
+                    if ($login_adm == 1){
+                        featuredItemPicHoverLink.setAttribute('href', 'visualizar_cliente.html');
+                    }
+                    if ($login_adm == null || $login_adm == -1){
+                        featuredItemPicHoverLink.setAttribute('href', 'login.html');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar o cliente logado:', error);
+                });
+                featuredItemPicHoverLink.innerHTML = '<i class="fa fa-shopping-cart"></i>';
+
+                featuredItemPicHoverLi.appendChild(featuredItemPicHoverLink);
+                featuredItemPicHover.appendChild(featuredItemPicHoverLi);
+                featuredItemPic.appendChild(featuredItemPicHover);
+
+                let featuredItemText = document.createElement('div');
+                featuredItemText.className = 'featured__item__text';
+
+                let featuredItemTextLink = document.createElement('a');
+                featuredItemTextLink.setAttribute('href', '');
+                featuredItemTextLink.textContent = planta;
+
+                let featuredItemTextH5 = document.createElement('h5');
+                featuredItemTextH5.textContent = 'R$ ' + plantaPreco[planta];
+
+                featuredItemText.appendChild(featuredItemTextLink);
+                featuredItemText.appendChild(featuredItemTextH5);
+
+                featuredItem.appendChild(featuredItemPic);
+                featuredItem.appendChild(featuredItemText);
+
+                let estoque = document.createElement('p');
+                estoque.textContent = 'Estoque: ' + plantaInventario[planta];
+                featuredItemText.appendChild(estoque);
+
+                div.appendChild(featuredItem);
+                container.appendChild(div);
+            });
+        };
+        
+    </script>
+   
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Endereço: Rua Sem Nome, Limbo</li>
+                            <li>Telefone: +55 (16)999999 </li>
+                            <li>Email: florandre@gmail.com </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Nossos termos</h6>
+                        <ul>
+                            <li>Não tem mesmo</li>
+                            <li> Se eu não sigo regras</li>
+                            <li> pq vc seguiria?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Feito por Laurinha, André, Natália, Damaris <i class="fa fa-heart" aria-hidden="true"></i>
+  </div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> FlorAndre | Floricultura</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+  
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> florandre@gmail.com</li>
+                                <li>10% de desconto pro cupom trotro123</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__auth">
+                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li>Comprinhas</li>
+                            <li>Sobre nós </li>
+                            <li>Contato</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+ 
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h5> As melhores plantas do mundo você só encontra aqui </h5>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+55 (16) 9999999</h5>
+                                <span>suporte 24h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <h2> Logar-se </h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <h2> Cadastrar-se </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-lg-6 col-md-3 col-sm-6 text-center">
+                    <div class="form-center">
+                        <form id="formLogin">
+                            <br>   
+                            <input type="text" name="email" placeholder="E-mail" /> <br><br>
+                            <input type="password" name="senha" placeholder="Senha" /> <br> <br>
+                            <input class="alinhar2 rounded-pill  bg-success text-light" type="submit" value="Entrar"/> <br>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-3 col-sm-6 text-center">
+                    <div class="form-center">
+                        <form id="formCadastro">
+                            <input type="text" name="nome" placeholder="Nome" required><br><br>
+                            <input type="date" name="datanasc" required><br><br>
+                            <input type="text" name="email" placeholder="E-mail" required><br><br>
+                            <input type="password" name="senha" placeholder="Senha" required><br><br>
+                            <input type="submit" value="Cadastrar" class="alinhar3 rounded-pill bg-success text-light">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        function exibirMensagemLogado(dados) {
+            alert(`\t${dados}`);
+            logado();
+        }
+
+        function logado(){
+            fetch("./clientes.php?diferenciador=yes")
+            .then(response => response.json())
+            .then(data => {
+                if (data.adm == null || data.adm == undefined) {
+                    console.log(data.adm);
+                    console.log("Cliente não logado");
+                } 
+                else{
+                    if (data.adm == 1){
+                        window.location.href = "visualizar_cliente.html";
+                    }
+                    else {
+                        window.location.href = "index.html";
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar o cliente logado:', error);
+            });
+        }
+
+        // Login
+        document.querySelector("#formLogin").addEventListener("submit", function (e) {
+            e.preventDefault();
+            let email = document.querySelector("#formLogin input[name=email]").value;
+            let senha = document.querySelector("#formLogin input[name=senha]").value;
+
+            // Enviando os dados.
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('senha', senha);
+
+            // Configurando o FETCH
+            const options = {
+                method: "POST",
+                body: formData
+            }
+
+            fetch("clientes.php", options)
+                .then((resposta) => {
+                    if(!resposta.ok){
+                        throw new Error(resposta.json());
+                    }
+                    return resposta.json();
+                 })
+                .then((json) => {
+                    exibirMensagemLogado(json.msg);
+                });
+
+            // Reseta o formulário
+            e.target.reset();
+        });
+
+        // Cadastro
+        document.querySelector("#formCadastro").addEventListener("submit", function (e) {
+            e.preventDefault();
+            let email = document.querySelector("#formCadastro input[name=email]").value;
+            let senha = document.querySelector("#formCadastro input[name=senha]").value;
+            let nome = document.querySelector("#formCadastro input[name=nome]").value;
+            let datanasc = document.querySelector("#formCadastro input[name=datanasc]").value;
+
+            // Enviando os dados.
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('senha', senha);
+            formData.append('nome', nome);
+            formData.append('datanasc', datanasc);
+            formData.append('signup', "Perdon, me perdi com os sessions ");
+
+            // Configurando o FETCH
+            const options = {
+                method: "POST",
+                body: formData
+            }
+
+            fetch("clientes.php", options)
+                .then((res) => {
+                    return res.json();
+                })
+                .then((json) => {
+                    alert(`\t${json.msg}`);
+                });
+
+            // Reseta o formulário
+            e.target.reset();
+        });
+    </script>
+
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Endereço: Rua Sem Nome, Limbo</li>
+                            <li>Telefone: +55 (16)999999 </li>
+                            <li>Email: florandre@gmail.com </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Nossos termos</h6>
+                        <ul>
+                            <li>Não tem mesmo</li>
+                            <li> Se eu não sigo regras</li>
+                            <li> pq vc seguiria?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p>
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> Feito por Laurinha, André, Natália, Damaris <i class="fa fa-heart" aria-hidden="true"></i>
+    </div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>

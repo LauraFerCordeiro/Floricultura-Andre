@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FlorAndre | Floricultura</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> florandre@gmail.com</li>
+                                <li>10% de desconto pro cupom trotro123</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__auth">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="">Visualizar</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="visualizar_cliente.html">Clientes</a></li>
+                                    <li><a href="visualizar_planta.html">Plantas</a></li>
+                                    <li><a href="visualizar_ferramenta.html">Ferramentas</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Cadastrar</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="cadastro_cliente.html">Cliente</a></li>
+                                    <li><a href="cadastro_planta.html">Planta</a></li>
+                                    <li><a href="cadastro_ferramenta.html">Ferramenta</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Editar</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="editar_cliente.html">Clientes</a></li>
+                                    <li><a href="editar_planta.html">Plantas</a></li>
+                                    <li><a href="editar_ferramenta.html">Ferramentas</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Deletar</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="deletar_cliente.html">Clientes</a></li>
+                                    <li><a href="deletar_planta.html">Plantas</a></li>
+                                    <li><a href="deletar_ferramenta.html">Ferramentas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+ 
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h5> As melhores plantas do mundo você só encontra aqui </h5>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="submit">
+                                <div class="hero__search__categories">
+                                    Cliente
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="Busque pelo nome de um cliente">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+55 (16) 9999999</h5>
+                                <span>suporte 24h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout spad" id="innerHTMLtxt">
+        <div class="container">
+            <div class="checkout__form">
+                <div id="resultado">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout spad" id="innerHTMLtxt">
+        <div class="container">
+            <div class="checkout__form">
+                <h4>Tabela Clientes</h4>
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <td><b>ID </b></td>
+                            <td><b> Nome </b></td>
+                            <td><b> Data de Nascimento </b></td>
+                            <td><b>Email </b> </td>
+                        </tr>
+                    </thead>
+                    <tbody id="tableClient">
+                    </tbody>
+                </table>
+                <br>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        function logado(){
+            fetch("./clientes.php?diferenciador=yes")
+            .then(response => response.json())
+            .then(data => {
+                if (data.adm == null || data.adm == undefined) {
+                    console.log(data.adm);
+                    console.log("Cliente não logado");
+                    window.location.href = "login.html";
+                } 
+                else{
+                    if (!data.adm == 1){
+                        console.log("Você não é adm");
+                        window.location.href = "index.html";    
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar o cliente logado:', error);
+            });
+        }
+
+        logado();
+
+        function tabela_cliente(){
+
+            fetch("./clientes")
+                .then((res) => {
+                    return res.json();
+                })
+                .then((json) => {
+                    list(json);
+                    console.log(json);
+                });
+        }
+
+        tabela_cliente();
+
+        function list(dados){
+                dados.forEach(cliente => {
+                let adm = cliente.adm
+                if (adm === 0) {
+                    let linha = `
+                        <tr>
+                            <td>${cliente.id}</td>
+                            <td>${cliente.nome}</td>
+                            <td>${cliente.datanasc}</td>
+                            <td>${cliente.email}</td>
+                        </tr>
+                    `;
+                    document.getElementById('tableClient').innerHTML += linha;
+                }
+                });
+        }
+
+    async function getClienteNome(nome){
+        try {   
+
+            const response = await fetch('./clientes');
+            const data = await response.json();
+
+            const cliente = data.find(item => item.nome.toLowerCase() === nome.toLowerCase());
+
+            if (cliente) {
+                criarTabela(cliente);
+            } else {
+                alert("O cliente não foi encontrado");
+                console.log("Cliente não encontrado");
+            }
+        } catch (error) {
+            alert("Erro ao buscar cliente");
+            console.error('Erro ao buscar cliente:', error);
+        }
+    }
+
+    function criarTabela(cliente){
+        let tabela = "<h4>Tabela Cliente Especifico</h4><table class='table text-center'><tr><th>ID</th><th>Nome</th><th>Data de Nascimento</th><th>Email</th></tr>";
+
+        tabela += `<tr><td>${cliente.id}</td><td>${cliente.nome}</td><td>${cliente.datanasc}</td><td>${cliente.email}</td></tr>`;
+
+        tabela += '</table>';
+
+        document.getElementById('resultado').innerHTML = tabela;
+    }
+
+    document.querySelector('.hero__search__form form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const input = event.target.querySelector('input');
+        const nome = input.value.trim();
+
+        if (nome) {
+            getClienteNome(nome);
+        } else {
+            console.log('Digite o nome do cliente para buscar');
+        }
+
+        input.value = '';
+    });
+    </script> 
+
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Endereço: Rua Sem Nome, Limbo</li>
+                            <li>Telefone: +55 (16)999999 </li>
+                            <li>Email: florandre@gmail.com </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Nossos termos</h6>
+                        <ul>
+                            <li>Não tem mesmo</li>
+                            <li> Se eu não sigo regras</li>
+                            <li> pq vc seguiria?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Feito por Laurinha, André, Natália, Damaris <i class="fa fa-heart" aria-hidden="true"></i>
+  </div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FlorAndre | Floricultura</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> florandre@gmail.com</li>
+                                <li>10% de desconto pro cupom trotro123</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__auth">
+                                <a href=""><i class="fa fa-user"></i> Log-Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="">Visualizar</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="visualizar_cliente.html">Clientes</a></li>
+                                    <li><a href="visualizar_planta.html">Plantas</a></li>
+                                    <li><a href="visualizar_ferramenta.html">Ferramentas</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="">Cadastrar</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="cadastro_cliente.html">Cliente</a></li>
+                                    <li><a href="cadastro_planta.html">Planta</a></li>
+                                    <li><a href="cadastro_ferramenta.html">Ferramenta</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Editar</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="editar_cliente.html">Clientes</a></li>
+                                    <li><a href="editar_planta.html">Plantas</a></li>
+                                    <li><a href="editar_ferramenta.html">Ferramentas</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Deletar</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="deletar_cliente.html">Clientes</a></li>
+                                    <li><a href="visualizar_planta.html">Plantas</a></li>
+                                    <li><a href="visualizar_ferramenta.html">Ferramentas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+ 
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h5> As melhores plantas do mundo você só encontra aqui </h5>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+55 (16) 9999999</h5>
+                                <span>suporte 24h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+                <h4>Cadastro de planta</h4>
+                <form method="POST" action="plantas.php" id="cadastro_planta">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Nome<span>*</span></p>
+                                        <input type="text" name="nome" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Nome cientifico<span>*</span></p>
+                                        <input type="text" name="nomecientifico" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Preço<span>*</span></p>
+                                <input type="float" placeholder="R$" name="preco" required>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Cor<span>*</span></p>
+                                <input type="text" name="cor" required>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Estoque<span>*</span></p>
+                                <input type="int" placeholder="Quantidade de plantas no estoque" name="estoque" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <label for="donoid">Dono:</label>                                                           
+                                        <select name="donoid" id="donoid"></select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Ferramenta<span>*</span></p>
+                                        <select name="ferramentaid" id="ferramentaid"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="alinhar2 rounded-pill bg-success text-light" type="button">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Endereço: Rua Sem Nome, Limbo</li>
+                            <li>Telefone: +55 (16)999999 </li>
+                            <li>Email: florandre@gmail.com </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Nossos termos</h6>
+                        <ul>
+                            <li>Não tem mesmo</li>
+                            <li> Se eu não sigo regras</li>
+                            <li> pq vc seguiria?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Feito por Laurinha, André, Natália, Damaris <i class="fa fa-heart" aria-hidden="true"></i>
+  </div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        function logado(){
+            fetch("./clientes.php?diferenciador=yes")
+            .then(response => response.json())
+            .then(data => {
+                if (data.adm == null || data.adm == undefined) {
+                    console.log(data.adm);
+                    console.log("Cliente não logado");
+                    window.location.href = "login.html";
+                } 
+                else{
+                    if (!data.adm == 1){
+                        console.log("Você não é adm");
+                        window.location.href = "index.html";    
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar o cliente logado:', error);
+            });
+        }
+
+        logado();
+
+        async function loadSelect() {
+            const clientes = await fetch('./clientes').then((response) => response.json())
+            const selectDonos = document.querySelector('#donoid')
+
+            const opcao_null = document.createElement('option')
+            opcao_null.value = -1
+            opcao_null.innerText = 'Nenhum'
+
+            selectDonos.appendChild(opcao_null)
+
+            clientes.forEach((cliente) => {
+                if (cliente.adm === 0){
+                    const opcao = document.createElement('option')
+                    opcao.value = cliente.id
+                    opcao.innerText = cliente.nome
+
+                    selectDonos.appendChild(opcao)
+                }
+            })
+        }
+
+        async function SelectFerramenta() {
+            const ferramentas = await fetch('./ferramentas').then((response) => response.json())
+            const selectFerramentas = document.querySelector('#ferramentaid')
+
+            ferramentas.forEach((ferramenta) => {
+                const opcao = document.createElement('option')
+                opcao.value = ferramenta.id
+                opcao.innerText = ferramenta.nome_ferramenta
+
+                selectFerramentas.appendChild(opcao)
+            })
+        }
+
+        loadSelect()
+        SelectFerramenta()
+
+        let btn = document.querySelector('button[type=button]');
+        btn.addEventListener(
+            'click',
+            function cadastro_planta(){
+                let nome = document.querySelector('input[name=nome]').value;
+                let nomecientifico = document.querySelector('input[name=nomecientifico]').value;
+                let preco = document.querySelector('input[name=preco]').value;
+                let cor = document.querySelector('input[name=cor]').value;
+                let estoque = document.querySelector('input[name=estoque]').value;
+                let donoid = document.querySelector('select[name=donoid]').value;
+                let ferramentaid = document.querySelector('select[name=ferramentaid]').value;
+
+                const formData = new FormData();
+                formData.append('nome', nome);
+                formData.append('nomecientifico', nomecientifico);
+                formData.append('preco', preco);
+                formData.append('cor', cor);
+                formData.append('estoque', estoque);
+                formData.append('donoid', donoid);
+                formData.append('ferramentaid', ferramentaid);
+
+                const options= {
+                    method: "POST",
+                    body: formData
+                }
+
+                fetch("plantas.php", options)
+                    .then((resposta) => {
+                        if(!resposta.ok){
+                            throw new Error(resposta.json());
+                        }
+                        return resposta.json();
+                    })
+                    .then((dados) => {
+                        mensagem(1, dados);
+                    })
+                    .catch(erro => {
+                        mensagem(0, erro);
+                    });
+            }
+            
+        );
+
+        function mensagem(num, dados){
+            if(num == 1){
+                alert('Adicionado com sucesso!');
+                document.getElementById("cadastro_planta").reset();
+            }else{
+                alert('Erro ao adicionar!');
+            }
+        }
+
+
+    </script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    
+
+
+</body>
+
+</html>
